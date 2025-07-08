@@ -1,6 +1,6 @@
 # Codigo SQL
 
-```
+```sql
 create database if not exists tp_integrador;
 use tp_integrador;
 
