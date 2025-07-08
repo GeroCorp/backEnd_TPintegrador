@@ -33,7 +33,7 @@ app.use("/dashboard", viewRoutes);
 
 app.use("/api/products", productRoutes);
 
-app.use("/dash", moviesRoutes)
+app.use("/movies", moviesRoutes)
 
 
 app.listen(PORT, () =>{
