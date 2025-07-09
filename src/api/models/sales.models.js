@@ -8,7 +8,7 @@ const selectAllSales = async() => {
 }
 
 const insertNewSale = async (cliente, monto) => {
-    let sql = `INSERT INTO ventas (cliente, monto) VALUES (?, ?, ?)`;
+    let sql = `INSERT INTO ventas (cliente, monto) VALUES (?, ?)`;
 
     return await connection.query(sql, [cliente, monto]);
 }
