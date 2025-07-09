@@ -43,16 +43,25 @@ export const getMovieByID = async (req, res) =>{
 
 export const createNewMovie = async (req, res) =>{
     try {
-        /*
-        let {titulo, genero, clasificacion, duracion, sinopsis, imagen} = req.body;
+        
+        let {titulo, genero, duracion, sinopsis, imagen, tags, clasificacion} = req.body;
 
-        if(!titulo || !genero || !clasificacion || !duracion || !sinopsis || !imagen) {
+        if(!titulo || !genero || !clasificacion || !duracion || !sinopsis || !imagen || !tags) {
             return res.status(400).json({
-                message: "Invalid values, make sure to send Titulo, Genero, Clasificacion, Duracion, Sinopsis and Imagen"
+                message: "Invalid values, make sure to send Titulo, Genero, Clasificacion, Duracion, Sinopsis, Imagen and tags"
             })
-        }*/
+        }
 
-        const [rows] = await movieModels.insertNewMovie(titulo, genero, clasificacion, duracion, sinopsis, imagen);
+        const [rows] = await movieModels.insertNewMovie(
+            titulo,
+            genero, // categoría
+            duracion,
+            sinopsis,
+            imagen,
+            tags,
+            clasificacion
+        );
+
 
         res.status(201).json({
             message: `Movie added succesfullly`,
