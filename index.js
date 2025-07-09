@@ -31,7 +31,7 @@ app.get("/", (req, res) =>{
 
 app.use("/dashboard", viewRoutes);
 
-app.use("/api/products", productRoutes);
+app.use("/api/collectibles", productRoutes);
 
 app.use("/movies", moviesRoutes)
 

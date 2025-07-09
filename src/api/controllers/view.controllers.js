@@ -1,4 +1,4 @@
-import Products from "../models/producto.models.js";
+import Products from "../models/collectible.models.js";
 
 export const vistaListado = async (req, res) =>{
 

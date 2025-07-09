@@ -43,14 +43,14 @@ export const getMovieByID = async (req, res) =>{
 
 export const createNewMovie = async (req, res) =>{
     try {
-        
+        /*
         let {titulo, genero, clasificacion, duracion, sinopsis, imagen} = req.body;
 
         if(!titulo || !genero || !clasificacion || !duracion || !sinopsis || !imagen) {
             return res.status(400).json({
                 message: "Invalid values, make sure to send Titulo, Genero, Clasificacion, Duracion, Sinopsis and Imagen"
             })
-        }
+        }*/
 
         const [rows] = await movieModels.insertNewMovie(titulo, genero, clasificacion, duracion, sinopsis, imagen);
 
@@ -71,14 +71,14 @@ export const createNewMovie = async (req, res) =>{
 
 export const modifyMovie = async(req, res) =>{
     try {
-        
+        /*
         let {id, titulo, genero, clasificacion, duracion, sinopsis, imagen} = req.body;
 
         if(!id || !titulo || !genero || !clasificacion || !duracion || !sinopsis || !imagen){
             return res.status(400).json({
                 message: "Faltan campos requeridos"
             })
-        }
+        }*/
 
         const [result] = await movieModels.updateMovie(id, titulo, genero, clasificacion, duracion, sinopsis, imagen)
 
@@ -107,11 +107,12 @@ export const movieRemove = async (req, res) => {
     try {
         let {id} = req.params;
 
+        /*
         if(!id){
             return res.status(400).json({
                 message:`Producto ${id} removido`
             })
-        }
+        }*/
 
         let [result] = await movieModels.deleteProduct(id);
 

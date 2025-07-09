@@ -20,9 +20,27 @@ const validateId = (req, res, next) => {
     req.id = parseInt(id, 10); 
 
     next();
-}
+};
+
+/////////////
+// Middleware que valida los datos ingresados para crear o modificar una pelicula
+
+const validateMovie = (req, res, next) => {
+
+    const {titulo, genero, clasificacion, duracion, sinopsis, imagen} = req.body;
+
+    if(!titulo || !genero || !clasificacion || !duracion || !sinopsis || !imagen) {
+        return res.status(400).json({
+            message: "Invalid values, make sure to send Titulo, Genero, Clasificacion, Duracion, Sinopsis and Imagen"
+        })
+    }
+
+    next();
+
+};
 
 export {
     loggerUrl,
-    validateId
+    validateId,
+    validateMovie
 }

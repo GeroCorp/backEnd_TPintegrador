@@ -1,18 +1,19 @@
 import {Router} from "express";
-import { getAllProducts, getProductById, createProduct, modifyProduct, removeProduct } from "../controllers/product.controllers.js";
+import { getAllCollectibles,getCollectibleById, createCollectible, modifyCollectible, removeCollectible } from "../controllers/collectible.controllers.js";
+import { validateId } from "../middlewares/middlewares.js";
 
 const router = Router();
 
 
 // Cambiar por urls de frontTP ///////
-router.get("/", getAllProducts);
+router.get("/", getAllCollectibles);
 
-router.get("/:id", getProductById);
+router.get("/:id", validateId, getCollectibleById);
 
-router.post("/", createProduct);
+router.post("/", createCollectible);
 
-router.put("/", modifyProduct);
+router.put("/", modifyCollectible);
 
-router.delete("/:id", removeProduct);
+router.delete("/:id", validateId, removeCollectible);
 
 export default router;
