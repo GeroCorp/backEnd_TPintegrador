@@ -39,8 +39,23 @@ const validateMovie = (req, res, next) => {
 
 };
 
+const validateCollectible = (req, res, next) => {
+
+    const {name, image, desc, price} = req.body;
+
+    if(!name || !image || !desc || !price) {
+        return res.status(400).json({
+            message: "Invalid values, make sure to send nombre, imagen, descripcion and precio"
+        })
+    }
+
+    next();
+
+};
+
 export {
     loggerUrl,
     validateId,
-    validateMovie
+    validateMovie,
+    validateCollectible
 }

@@ -1,6 +1,6 @@
 import {Router} from "express";
 import { getAllCollectibles,getCollectibleById, createCollectible, modifyCollectible, removeCollectible } from "../controllers/collectible.controllers.js";
-import { validateId } from "../middlewares/middlewares.js";
+import { validateId, validateCollectible } from "../middlewares/middlewares.js";
 
 const router = Router();
 
@@ -10,9 +10,9 @@ router.get("/", getAllCollectibles);
 
 router.get("/:id", validateId, getCollectibleById);
 
-router.post("/", createCollectible);
+router.post("/", validateCollectible, createCollectible);
 
-router.put("/", modifyCollectible);
+router.put("/", validateCollectible, modifyCollectible);
 
 router.delete("/:id", validateId, removeCollectible);
 
