@@ -52,7 +52,16 @@ export const createNewMovie = async (req, res) =>{
             })
         }
 
-        const [rows] = await movieModels.insertNewMovie(titulo, genero, duracion,sinopsis,imagen,tags,clasificacion);
+        const [rows] = await movieModels.insertNewMovie(
+            titulo,
+            genero, // categoría
+            duracion,
+            sinopsis,
+            imagen,
+            tags,
+            clasificacion
+        );
+
 
         res.status(201).json({
             message: `Movie added succesfullly`,

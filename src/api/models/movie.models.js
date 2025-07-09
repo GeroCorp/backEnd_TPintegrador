@@ -12,11 +12,24 @@ const selectMovieByID = async(id) =>{
     return await connection.query(sql, id);
 }
 
-const insertNewMovie = async (titulo, categoria, clasificacion, duracion, sinopsis, imagen, tags) => {
-    let sql = `insert into peliculas (titulo, categoria, duracion, sinopsis, imagen, tags, clasificacion) VALUES (?, ?, ?, ?, ?, ?, ?)`;
+const insertNewMovie = async (titulo, categoria, duracion, sinopsis, imagen, tags, clasificacion) => {
+    const sql = `
+        INSERT INTO peliculas 
+        (titulo, categoria, duracion, sinopsis, imagen, tags, clasificacion)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    `;
 
-    return await connection.query(sql, [titulo, categoria, clasificacion, sinopsis, imagen, tags, duracion]);
-}
+    return await connection.query(sql, [
+        titulo,
+        categoria,
+        duracion,
+        sinopsis,
+        imagen,
+        tags,
+        clasificacion
+    ]);
+};
+
 
 const updateMovie = async (id, titulo, genero, clasificacion, duracion, sinopsis, tags,imagen) =>{
     let sql = `
