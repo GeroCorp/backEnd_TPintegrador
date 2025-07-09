@@ -21,7 +21,7 @@ export const getAllSales = async(req, res) =>{
 export const createNewSale = async (req, res) =>{
     try {
 
-        const [rows] = await salesModels.insertNewSale(cliente, monto, fecha);
+        const [rows] = await salesModels.insertNewSale(cliente, monto);
 
         res.status(201).json({
             message: `Sale added succesfullly`,

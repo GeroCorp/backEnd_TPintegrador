@@ -55,11 +55,11 @@ const validateCollectible = (req, res, next) => {
 
 const validateSale = (req, res, next) => {
 
-    const {cliente, monto, fecha} = req.body;
+    const {cliente, monto} = req.body;
 
-    if(!cliente || !monto || !fecha) {
+    if(!cliente || !monto) {
         return res.status(400).json({
-            message: "Invalid values, make sure to send cliente, monto and fecha"
+            message: "Invalid values, make sure to send cliente and monto"
         });
     }
 

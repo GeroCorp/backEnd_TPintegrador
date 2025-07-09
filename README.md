@@ -60,7 +60,7 @@ CREATE TABLE `ventas` (
   `id` int(11) NOT NULL,
   `cliente` varchar(50) NOT NULL,
   `monto` float NOT NULL,
-  `fecha` date NOT NULL
+  `fecha` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 ALTER TABLE `ventas`
