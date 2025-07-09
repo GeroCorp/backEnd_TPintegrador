@@ -41,8 +41,8 @@ const updateMovie = async (id, titulo, genero, clasificacion, duracion, sinopsis
 
 }
 
-const deleteProduct = async (id) => {
-    let sql = "DELETE FROM productos WHERE id = ?";
+const deleteMovie = async (id) => {
+    let sql = "DELETE FROM peliculas WHERE id = ?";
 
     return await connection.query(sql,[id])
 }
@@ -52,5 +52,5 @@ export default {
     selectMovieByID,
     insertNewMovie,
     updateMovie,
-    deleteProduct
+    deleteMovie
 }

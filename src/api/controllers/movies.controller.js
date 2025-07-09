@@ -123,7 +123,7 @@ export const movieRemove = async (req, res) => {
             })
         }*/
 
-        let [result] = await movieModels.deleteProduct(id);
+        let [result] = await movieModels.deleteMovie(id);
 
         if(result.affectedRows === 0) {
             return res.status(400).json({
