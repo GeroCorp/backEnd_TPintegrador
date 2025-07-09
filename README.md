@@ -56,4 +56,18 @@ INSERT INTO `coleccionables` (`id`, `nombre`, `imagen`, `descripcion`, `precio`)
 (4, 'Vaso Wolverine', 'https://http2.mlstatic.com/D_NQ_NP_709668-MLA78253528451_082024-O.webp', 'Vaso con forma de Wolverine.Capacidad: 800ml', 7500);
 
 
+CREATE TABLE `ventas` (
+  `id` int(11) NOT NULL,
+  `cliente` varchar(50) NOT NULL,
+  `monto` float NOT NULL,
+  `fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+ALTER TABLE `ventas`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `ventas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;  
+
 ```

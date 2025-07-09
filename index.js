@@ -2,7 +2,7 @@ import express from "express";
 import env from "./src/api/config/enviroments.js";
 import cors from "cors";
 import { loggerUrl } from "./src/api/middlewares/middlewares.js";
-import { moviesRoutes, collectibleRoutes, viewRoutes } from "./src/api/routes/index.js";
+import { moviesRoutes, collectibleRoutes, salesRoutes ,viewRoutes } from "./src/api/routes/index.js";
 import { join, __dirname } from "./src/api/utils/index.js";
 
 const PORT = env.PORT;
@@ -33,9 +33,10 @@ app.use("/dashboard", viewRoutes);
 
 app.use("/collectibles", collectibleRoutes);
 
-app.use("/movies", moviesRoutes)
+app.use("/movies", moviesRoutes);
 
+app.use("/sales", salesRoutes);
 
 app.listen(PORT, () =>{
-    console.log(`Server running in http://localhost:${PORT}`)
-})
+    console.log(`Server running in http://localhost:${PORT}`);
+});

@@ -32,7 +32,7 @@ const validateMovie = (req, res, next) => {
     if(!titulo || !genero || !clasificacion || !duracion || !sinopsis || !imagen) {
         return res.status(400).json({
             message: "Invalid values, make sure to send Titulo, Genero, Clasificacion, Duracion, Sinopsis and Imagen"
-        })
+        });
     }
 
     next();
@@ -46,7 +46,21 @@ const validateCollectible = (req, res, next) => {
     if(!name || !image || !desc || !price) {
         return res.status(400).json({
             message: "Invalid values, make sure to send nombre, imagen, descripcion and precio"
-        })
+        });
+    }
+
+    next();
+
+};
+
+const validateSale = (req, res, next) => {
+
+    const {cliente, monto, fecha} = req.body;
+
+    if(!cliente || !monto || !fecha) {
+        return res.status(400).json({
+            message: "Invalid values, make sure to send cliente, monto and fecha"
+        });
     }
 
     next();
@@ -57,5 +71,6 @@ export {
     loggerUrl,
     validateId,
     validateMovie,
-    validateCollectible
+    validateCollectible,
+    validateSale
 }
