@@ -1,4 +1,4 @@
-import salesModels from "../models/sales.models";
+import salesModels from "../models/sales.models.js";
 
 
 export const getAllSales = async(req, res) =>{
