@@ -12,7 +12,7 @@ router.get("/:id", validateId, getCollectibleById);
 
 router.post("/", validateCollectible, createCollectible);
 
-router.put("/", validateCollectible, modifyCollectible);
+router.put("/:id", validateCollectible, modifyCollectible);
 
 router.delete("/:id", validateId, removeCollectible);
 

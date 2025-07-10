@@ -7,7 +7,7 @@ export const getAllMovies = async(req, res) =>{
 
         res.status(200).json({
             payload: rows,
-            message: rows.lenght === 0 ? `Movies not found` : `Movies founded`
+            message: rows.length === 0 ? `Movies not found` : `Movies founded`
         })
     }catch (e){
         console.error(e);
@@ -23,7 +23,7 @@ export const getMovieByID = async (req, res) =>{
 
         const [rows]= await movieModels.selectMovieByID(id);
 
-        if (rows.lenght === 0){
+        if (rows.length == 0){
             return res.status(404).json({
                 error: `Product with ID: ${id} no founded`
             })
@@ -80,16 +80,25 @@ export const createNewMovie = async (req, res) =>{
 
 export const modifyMovie = async(req, res) =>{
     try {
+        
+        let {id, titulo, genero, clasificacion, duracion, sinopsis, imagen, tags} = req.body;
         /*
-        let {id, titulo, genero, clasificacion, duracion, sinopsis, imagen} = req.body;
-
         if(!id || !titulo || !genero || !clasificacion || !duracion || !sinopsis || !imagen){
             return res.status(400).json({
                 message: "Faltan campos requeridos"
             })
         }*/
-
-        const [result] = await movieModels.updateMovie(id, titulo, genero, clasificacion, duracion, sinopsis, imagen)
+console.log("req.body:", {
+    id,
+    titulo,
+    genero,
+    clasificacion,
+    duracion,
+    sinopsis,
+    tags,
+    imagen
+});
+        const [result] = await movieModels.updateMovie(titulo, genero,  duracion, sinopsis, imagen, tags, clasificacion, id)
 
         if (result.affectedRows === 0){
             return res.status(400).json({

@@ -31,7 +31,7 @@ const insertNewMovie = async (titulo, categoria, duracion, sinopsis, imagen, tag
 };
 
 
-const updateMovie = async (id, titulo, genero, clasificacion, duracion, sinopsis, tags,imagen) =>{
+const updateMovie = async (titulo, genero,  duracion, sinopsis, imagen, tags, clasificacion, id) =>{
     let sql = `
         update peliculas
         set titulo = ?, categoria = ?, duracion = ?, sinopsis = ?, imagen = ?, tags = ?, clasificacion = ?

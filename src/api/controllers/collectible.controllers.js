@@ -73,7 +73,7 @@ export const createCollectible = async (req, res) =>{
 
         res.status(201).json({
             message: "Collectible created succesfully",
-            productId: rows.insertedId
+            productId: rows.insertId
         });
     }catch (e){
         console.error(e);
@@ -96,6 +96,10 @@ export const modifyCollectible = async (req, res) => {
                 message: "Faltan campos requeridos"
             });
         }*/
+
+        console.log("rq.body",{
+            id,name,image,desc,price
+        });
 
         const [result] = await collectibles.updateCollectible(name, image, desc, price, id);
 
