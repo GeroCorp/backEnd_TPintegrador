@@ -44,11 +44,11 @@ export const getMovieByID = async (req, res) =>{
 export const createNewMovie = async (req, res) =>{
     try {
         
-        let {titulo, genero, duracion, sinopsis, imagen, tags, clasificacion} = req.body;
+        let {titulo, genero, duracion, sinopsis, imagen, tags, clasificacion, precio} = req.body;
 
-        if(!titulo || !genero || !clasificacion || !duracion || !sinopsis || !imagen || !tags) {
+        if(!titulo || !genero || !clasificacion || !duracion || !sinopsis || !imagen || !tags || !precio) {
             return res.status(400).json({
-                message: "Invalid values, make sure to send Titulo, Genero, Clasificacion, Duracion, Sinopsis, Imagen and tags"
+                message: "Invalid values, make sure to send Titulo, Genero, Clasificacion, Duracion, Sinopsis, Precio, Imagen and tags"
             })
         }
 
@@ -59,7 +59,8 @@ export const createNewMovie = async (req, res) =>{
             sinopsis,
             imagen,
             tags,
-            clasificacion
+            clasificacion,
+            precio
         );
 
 
@@ -81,7 +82,7 @@ export const createNewMovie = async (req, res) =>{
 export const modifyMovie = async(req, res) =>{
     try {
         
-        let {id, titulo, genero, clasificacion, duracion, sinopsis, imagen, tags} = req.body;
+        let {id, titulo, genero, clasificacion, duracion, sinopsis, imagen, tags, precio} = req.body;
         /*
         if(!id || !titulo || !genero || !clasificacion || !duracion || !sinopsis || !imagen){
             return res.status(400).json({
@@ -96,9 +97,10 @@ console.log("req.body:", {
     duracion,
     sinopsis,
     tags,
-    imagen
+    imagen,
+    precio
 });
-        const [result] = await movieModels.updateMovie(titulo, genero,  duracion, sinopsis, imagen, tags, clasificacion, id)
+        const [result] = await movieModels.updateMovie(titulo, genero,  duracion, sinopsis, imagen, tags, clasificacion, precio, id)
 
         if (result.affectedRows === 0){
             return res.status(400).json({
